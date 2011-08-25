@@ -27,7 +27,7 @@
 Name: mahout
 Version: %{mahout_version}
 Release: %{mahout_release}
-Summary: Scripts and libraries for running software services on cloud infrastructure.
+Summary: Mahout - description needed.
 URL: http://mahout.apache.org
 Group: Development/Libraries
 BuildArch: noarch
@@ -35,6 +35,7 @@ Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 License: ASL 2.0 
 Source0: %{name}-distribution-%{mahout_base_version}-src.tar.gz
 Source1: install_%{name}.sh
+Requires: hadoop >= 0.20.2
 
 # RHEL6 provides natively java
 %if 0%{?rhel} == 6
