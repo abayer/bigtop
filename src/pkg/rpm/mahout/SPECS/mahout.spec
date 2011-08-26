@@ -27,7 +27,7 @@
 Name: mahout
 Version: %{mahout_version}
 Release: %{mahout_release}
-Summary: Mahout - description needed.
+Summary: Mahout is a set of Java libraries for scalable machine learning.
 URL: http://mahout.apache.org
 Group: Development/Libraries
 BuildArch: noarch
@@ -48,7 +48,21 @@ Requires: jre >= 1.6
 
 
 %description 
-Mahout provides, well, Mahout.
+Mahout's goal is to build scalable machine learning libraries. 
+With scalable we mean:
+
+Scalable to reasonably large data sets. Our core algorithms for clustering,
+classfication and batch based collaborative filtering are implemented on top of
+Apache Hadoop using the map/reduce paradigm. However we do not restrict
+contributions to Hadoop based implementations: Contributions that run on a
+single node or on a non-Hadoop cluster are welcome as well. The core libraries
+are highly optimized to allow for good performance also for non-distributed
+algorithms.
+Scalable to support your business case. Mahout is distributed under a 
+commercially friendly Apache Software license.
+Scalable community. The goal of Mahout is to build a vibrant, responsive,
+diverse community to facilitate discussions not only on the project itself but
+also on potential use cases. Come to the mailing lists to find out more.
     
 %prep
 %setup -n %{name}-distribution-%{mahout_base_version}
