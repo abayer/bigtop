@@ -12,6 +12,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 %define mahout_name mahout
 %define lib_mahout /usr/lib/%{mahout_name}
 %define etc_mahout /etc/%{mahout_name}
@@ -20,6 +21,7 @@
 %define bin_mahout /usr/bin
 %define man_dir /usr/share/man
 %define doc_mahout %{_docdir}/mahout-%{mahout_version}
+
 %if  %{?suse_version:1}0
 %define alternatives_cmd update-alternatives
 %else
@@ -40,7 +42,7 @@ Buildroot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 License: ASL 2.0 
 Source0: %{name}-distribution-%{mahout_base_version}-src.tar.gz
 Source1: install_%{name}.sh
-Requires: hadoop >= 0.20.2
+Requires: hadoop >= 0.20.2, /sbin/chkconfig
 
 
 %description 
