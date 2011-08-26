@@ -37,15 +37,6 @@ Source0: %{name}-distribution-%{mahout_base_version}-src.tar.gz
 Source1: install_%{name}.sh
 Requires: hadoop >= 0.20.2
 
-# RHEL6 provides natively java
-%if 0%{?rhel} == 6
-BuildRequires: java-1.6.0-sun-devel
-Requires: java-1.6.0-sun
-%else
-BuildRequires: jdk >= 1.6
-Requires: jre >= 1.6
-%endif
-
 
 %description 
 Mahout's goal is to build scalable machine learning libraries. 
