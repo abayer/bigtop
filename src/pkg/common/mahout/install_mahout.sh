@@ -98,7 +98,7 @@ LIB_DIR=${LIB_DIR:-/usr/lib/mahout}
 INSTALLED_LIB_DIR=${INSTALLED_LIB_DIR:-/usr/lib/mahout}
 EXAMPLES_DIR=${EXAMPLES_DIR:-$DOC_DIR/examples}
 BIN_DIR=${BIN_DIR:-/usr/bin}
-CONF_DIR=${CONF_DIR:-/etc/mahout/conf}
+CONF_DIR=${CONF_DIR:-/etc/mahout/conf.dist}
 
 install -d -m 0755 $PREFIX/$LIB_DIR
 install -d -m 0755 $PREFIX/$LIB_DIR/bin

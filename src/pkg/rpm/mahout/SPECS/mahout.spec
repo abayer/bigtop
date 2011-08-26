@@ -20,6 +20,11 @@
 %define bin_mahout /usr/bin
 %define man_dir /usr/share/man
 %define doc_mahout %{_docdir}/mahout-%{mahout_version}
+%if  %{?suse_version:1}0
+%define alternatives_cmd update-alternatives
+%else
+%define alternatives_cmd alternatives
+%endif
 
 # disable repacking jars
 %define __os_install_post %{nil}
@@ -69,12 +74,20 @@ sh $RPM_SOURCE_DIR/install_mahout.sh \
           --prefix=$RPM_BUILD_ROOT \
           --doc-dir=%{doc_mahout} 
 
+%post
+%{alternatives_cmd} --install %{config_mahout} %{mahout_name}-conf %{config_mahout}.dist 30
+
+%preun
+if [ "$1" = 0 ]; then
+        %{alternatives_cmd} --remove %{mahout_name}-conf %{config_mahout}.dist
+fi
+
 #######################
 #### FILES SECTION ####
 #######################
 %files 
 %defattr(-,root,root,755)
-%config %{etc_mahout}/conf
+%config %{config_mahout}.dist
 %doc %{doc_mahout}
 %{lib_mahout}
 %{bin_mahout}/mahout
